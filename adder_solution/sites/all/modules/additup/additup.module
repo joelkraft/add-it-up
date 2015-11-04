@@ -49,6 +49,15 @@
     $form_state['redirect'] = 'result';  
   }
 
+  function adder_form_validate($form, &$form_state) {
+    if(!is_numeric($form_state['values']['number_one'])) {
+      form_set_error('number_one', t('Field must be numeric'));
+    }
+    if(!is_numeric($form_state['values']['number_two'])) {
+      form_set_error('number_two', t('Field must be numeric'));
+    }
+  }
+
   function adder_result() {
     $result = $_SESSION['added_numbers'];
     return "Your numbers have been added: $result.";
