@@ -1,0 +1,36 @@
+<?php
+
+  function additup_menu() {
+    $items = array();
+    $items['add_it_up'] = array(
+      'title' => t('Add It Up'),
+      'type' => MENU_NORMAL_ITEM,
+      'access callback' => TRUE,
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('adder_form'),
+    );
+    return $items;
+  }
+
+  function adder_form() {
+    $form = array();
+
+    $form['number_one'] = array(
+      '#title' => 'First Number',
+      '#type' => 'textfield',
+      '#description' => t('Enter a number.'),
+    );
+
+    $form['number_two'] = array(
+      '#title' => 'Second Number',
+      '#type' => 'textfield',
+      '#description' => t('Enter a number to add to the first.'),
+    );
+
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => 'Add your numbers',
+    );
+
+    return $form;
+  }

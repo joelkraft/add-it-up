@@ -1,0 +1,5 @@
+name = Additup
+description = Add two numbers.
+package = Simple Math
+core = 7.x
+files[] = additup.module
